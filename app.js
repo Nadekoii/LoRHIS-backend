@@ -1,13 +1,13 @@
 var createError = require('http-errors');
 var express = require('express');
-var axios = require('axios');
 var cors = require('cors');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-
+var downlinkRouter = require('./routes/downlink');
+var uplinkRouter = require('./routes/uplink');
 
 const app = express();
 
@@ -23,8 +23,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/api', downlinkRouter);
+app.use('/api', uplinkRouter);
 
 /* Downlink API */
+/*
 app.post('/sendInput', async (req, res) => {
   const { userInput } = req.body;
   if (!userInput) {
@@ -55,9 +58,10 @@ app.post('/sendInput', async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   }
-});
+});/*
 
 /* Uplink API */
+/*
 app.post('/refreshStatus', async (req, res) => {
   const headers = {
     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZFVUkiOiJmYjhmNTZlYzFiMzI5YTYzIiwiYXBwSUQiOiIzNyIsImVtYWlsIjoibG9uZy52dTY2MjBAZ21haWwuY29tIiwicGFzc3dvcmQiOiJMb25nMTIzQCIsImlhdCI6MTcxOTg5MjY5NH0.AtiBtwj4tfsxeVUqCJotwbHhmavw5isxCRpaM4pGDhQ'
@@ -72,7 +76,7 @@ app.post('/refreshStatus', async (req, res) => {
     console.error('Error fetching status:', error);
     res.status(500).json({ status: false, message: 'Error fetching status' });
   }
-});
+});*/
 
 
 // catch 404 and forward to error handler
