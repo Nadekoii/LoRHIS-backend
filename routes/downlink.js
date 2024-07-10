@@ -5,9 +5,6 @@ var router = express.Router();
 // Downlink route
 router.post('/sendInput', async (req, res) => {
     const { userInput } = req.body;
-    if (!userInput) {
-        return res.status(400).json({ message: 'Input cannot be empty' });
-    }
     try {
         const downlinkConfig = {
             "deviceEUI": "fb8f56ec1b329a63",

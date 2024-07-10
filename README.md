@@ -10,6 +10,8 @@ Node.js
 ```sh
 npm init -y                 # Initialize npm project
 npm install express         # Install the express package
+npm install ws              # Install the websocket package
+npm install mqtt            # Install the mqtt package
 ```
 
 ### Compile and Run the Application
