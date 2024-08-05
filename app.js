@@ -1,3 +1,4 @@
+/* Variables */
 var createError = require('http-errors');
 var express = require('express');
 var cors = require('cors');
@@ -7,23 +8,26 @@ var logger = require('morgan');
 var http = require('http');
 var { setupWebSocketServer } = require('./routes/websocket');
 
+/* Routers */
 var indexRouter = require('./routes/index');
 var downlinkRouter = require('./routes/downlink');
 var uplinkRouter = require('./routes/uplink');
 
+/* App */
 const app = express();
 const server = http.createServer(app);
 
-// view engine setup
+/* View Engine Setup */
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// Setup WebSocket Server with MQTT integration
+/* WebSocket Server Setup & MQTT Integration */
 setupWebSocketServer(server);
 server.listen(process.env.PORT || 3001, () => {
   console.log(`Server running on port ${server.address().port}`);
 });
 
+/* Middleware */
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
@@ -31,10 +35,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/* Routes */
 app.use('/', indexRouter);
 app.use('/api', downlinkRouter);
 app.use('/api', uplinkRouter);
 
+
+/* Error Handling */
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
