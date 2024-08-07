@@ -23,7 +23,7 @@ app.set('view engine', 'pug');
 
 /* WebSocket Server Setup & MQTT Integration */
 setupWebSocketServer(server);
-server.listen(process.env.PORT || 3001, () => {
+server.listen(process.env.PORT || 3001, '0.0.0.0',() => {
   console.log(`Server running on port ${server.address().port}`);
 });
 

@@ -1,6 +1,6 @@
 # LoRHIS - Back-end
 ## IDE
-[IntelliJ]([https://code.visualstudio.com/](https://www.jetbrains.com/idea/))
+[IntelliJ]([https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/))
 
 ## System Requirement
 Node.js
