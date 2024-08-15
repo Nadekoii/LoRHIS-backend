@@ -9,6 +9,7 @@ COPY package*.json ./
 
 # Install dependencies
 RUN npm install
+RUN npm install axios
 RUN npm install express
 RUN npm install ws
 RUN npm install mqtt

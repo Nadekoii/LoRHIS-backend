@@ -8,7 +8,7 @@ let messageTimeout;
 function resetMessageTimeout(wss) {
     // Clear the timeout if it exists
     clearTimeout(messageTimeout);
-    // Set a new timeout for 70 seconds
+    // Set a new timeout for 100 seconds
     messageTimeout = setTimeout(() => {
         // Send a null message to all clients
         wss.clients.forEach(client => {
@@ -19,7 +19,7 @@ function resetMessageTimeout(wss) {
         console.log('MQTT: Null timeout');
         // Reset the timeout
         resetMessageTimeout(wss);
-    }, 70000); // 70 seconds
+    }, 100000); // 100 seconds
 }
 
 // Setup the MQTT client
