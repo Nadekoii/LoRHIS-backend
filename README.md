@@ -35,3 +35,9 @@ npm install mqtt            # Install the mqtt package
 ```sh
 node bin/www
 ```
+
+## Known bug
+### Downlink API
+The Downlink API will always reply with Error 400 even with a Success, that's why the code will catch every error and ignore them. Fix the try-catch algorithm when the Downlink API is fixed on the server.
+### Uplink API
+The Uplink API was abandoned since the MQTT method is much better. If you want to reimplement the Uplink API, do rework the logic so that we actually compare the Uplink time with the current time to send Online-Offline instead of returning Online whenever we get Success response. 
