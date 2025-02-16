@@ -2,7 +2,7 @@
 The Back-end of the LoRHIS project
 
 ## System Demo
-[Watch me!](https://youtu.be/kN-17XNx0wQ?si=_ugtKiUVP83O7ex4](https://youtu.be/hJglYfKcqQY?si=Z_RsAl5QzFGh21UC))
+[Watch me!](https://youtu.be/hJglYfKcqQY)
 
 ## Github Repositories
 All of the repositories for the LoRHIS project can be found below:
